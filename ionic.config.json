@@ -1,0 +1,7 @@
+{
+  "name": "VizeSinav-20330122",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
