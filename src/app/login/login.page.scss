@@ -1,0 +1,21 @@
+ion-content{
+  --padding-top:30%;
+  --background:url('../../assets/dünya0000.jpg') 0 0/100% no-repeat;
+}
+.container{
+  background-color: white;
+  width: 92%;
+  margin-right:4%;
+  margin-left:4%;
+  border-radius: 5%;
+  opacity: 0.9;
+}
+.container-element{
+  margin-left:4%;
+  margin-right:4%;
+}
+.error-container{
+  padding:5%;
+  color: red;
+}
+

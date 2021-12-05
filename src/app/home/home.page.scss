@@ -1,3 +1,4 @@
+
 #container {
   text-align: center;
 
@@ -6,6 +7,7 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+
 }
 
 #container strong {
@@ -25,3 +27,17 @@
 #container a {
   text-decoration: none;
 }
+#top-bar{
+  padding: 10px;
+  top:10%;
+  position: absolute;
+}
+#bottom-bar{
+  margin:2px;
+  top:25%;
+  position: absolute;
+  height: 75%;
+  overflow-y: auto;
+  width: 100%;
+}
+

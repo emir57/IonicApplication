@@ -1,20 +1,51 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Welcome <ion-button fill="clear" (click)="logout()">Logout</ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<div id="top-bar" class="">
+  <div class="row">
+    <div class="col-8">
+      Sayfa {{currentPage}} gösteriliyor
+      <br>
+      <input placeholder="Search User" [(ngModel)]="searchString" type="text" class="form-control mb-1">
+      <nav aria-label="...">
+        <ul class="pagination pagination-sm ">
+          <li *ngFor="let page of pages" [ngClass]="checkCurrentPage(page)"><a class="page-link"
+              (click)="setPage(page)">{{page}}</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-4">
+      <div *ngIf="!isLoad" class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
   </div>
-</ion-content>
+</div>
+<div id="bottom-bar" class="row mt-4">
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Full Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users | userFilter:searchString">
+        <td>
+          <ion-avatar slot="start">
+            <img [src]="user.avatar">
+          </ion-avatar>
+        </td>
+        <td>{{user.first_name | uppercase}} {{user.last_name | uppercase}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

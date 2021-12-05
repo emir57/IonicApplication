@@ -1,0 +1,36 @@
+<ion-content>
+  <h4 class="display-1 text text-primary container-element">Login</h4>
+  <div class="container">
+
+    <form [formGroup]="loginForm">
+      <ion-item class="mb-3">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+      <ion-item class="mb-3">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <div
+        *ngIf="(loginForm.get('email').errors || loginForm.get('password').errors) && (loginForm.get('email').dirty || loginForm.get('password').dirty || loginForm.get('email').touched || loginForm.get('password').touched)"
+        class="error-container">
+        <div
+          *ngIf="(loginForm.get('email').dirty ||loginForm.get('email').touched)&& loginForm.get('email').errors && loginForm.get('email').errors.required">
+          Email is required</div>
+        <div
+          *ngIf="(loginForm.get('email').dirty ||loginForm.get('email').touched)&& loginForm.get('email').errors  && loginForm.get('email').errors.email">
+          Email is not valid</div>
+        <div
+          *ngIf="(loginForm.get('password').dirty ||loginForm.get('password').touched)&& loginForm.get('password').errors && loginForm.get('password').errors.minlength">
+          Password is minimum length 5</div>
+        <div
+          *ngIf="(loginForm.get('password').dirty ||loginForm.get('password').touched)&& loginForm.get('password').errors && loginForm.get('password').errors.required">
+          Password is required</div>
+      </div>
+    </form>
+  </div>
+  <ion-button class="container-element" expand="block" [disabled]="!loginForm.valid" (click)="login()">Log in
+  </ion-button>
+  <ion-button fill="clear" class="text-white" [routerLink]="['/register']" routerLinkActive="router-link-active">Do you
+    don't have an account?</ion-button>
+</ion-content>
