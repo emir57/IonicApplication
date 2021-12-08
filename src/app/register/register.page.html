@@ -3,27 +3,33 @@
   <div class="container">
 
     <form [formGroup]="registerForm">
-      <ion-item class="mb-3">
-        <ion-label position="floating">Name</ion-label>
-        <ion-input formControlName="name" type="email"></ion-input>
-      </ion-item>
-      <div
-        *ngIf="(registerForm.get('name').touched || registerForm.get('name').dirty) && registerForm.get('name').errors"
-        class="error-container">
-        <div
-          *ngIf="(registerForm.get('name').touched||registerForm.get('name').dirty) && (registerForm.get('name').errors && registerForm.get('name').errors.required)">
-          Name is required</div>
-      </div>
-      <ion-item class="mb-3">
-        <ion-label position="floating">Surname</ion-label>
-        <ion-input formControlName="surname" type="email"></ion-input>
-      </ion-item>
-      <div
-        *ngIf="(registerForm.get('surname').touched || registerForm.get('surname').dirty) && registerForm.get('surname').errors"
-        class="error-container">
-        <div
-          *ngIf="(registerForm.get('surname').touched||registerForm.get('surname').dirty) && (registerForm.get('surname').errors && registerForm.get('surname').errors.required)">
-          Surname is required</div>
+      <div class="row">
+        <div class="col-6">
+          <ion-item class="mb-3">
+            <ion-label position="floating">Name</ion-label>
+            <ion-input formControlName="name" type="email"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(registerForm.get('name').touched || registerForm.get('name').dirty) && registerForm.get('name').errors"
+            class="error-container">
+            <div
+              *ngIf="(registerForm.get('name').touched||registerForm.get('name').dirty) && (registerForm.get('name').errors && registerForm.get('name').errors.required)">
+              Name is required</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <ion-item class="mb-3">
+            <ion-label position="floating">Surname</ion-label>
+            <ion-input formControlName="surname" type="email"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(registerForm.get('surname').touched || registerForm.get('surname').dirty) && registerForm.get('surname').errors"
+            class="error-container">
+            <div
+              *ngIf="(registerForm.get('surname').touched||registerForm.get('surname').dirty) && (registerForm.get('surname').errors && registerForm.get('surname').errors.required)">
+              Surname is required</div>
+          </div>
+        </div>
       </div>
       <ion-item class="mb-3">
         <ion-label position="floating">Email</ion-label>
